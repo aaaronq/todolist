@@ -213,3 +213,7 @@ form input#taskName, form input#projectName {
 #cancelBtn:active {
 	background-color: rgb(201, 125, 116);
 }
+
+.currentProject {
+	background-color: lightblue;
+}
