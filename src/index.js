@@ -433,8 +433,13 @@ const todoHandler = (() => {
 	};
 
 	const getTodoList = (project) => {
-		if (project === "All") return allTodos;
-		return allTodos.filter((todo) => todo.project === project);
+		const sortingFunction = (a, b) => {
+			const dateA = new Date(a.date);
+			const dateB = new Date(b.date);
+			return dateA - dateB;
+		}
+		if (project === "All") return allTodos.sort(sortingFunction);
+		return allTodos.filter((todo) => todo.project === project).sort(sortingFunction);
 	};
 
 	const removeTodo = (currentid) => {
