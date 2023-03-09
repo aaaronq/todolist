@@ -385,6 +385,9 @@ const projectsHandler = (() => {
 	};
 
 	const updateProjectTodos = () => {
+		if (currentProject === "All") {
+			return;	
+		}
 		currentProject.todos = [];
 		const todoList = todoHandler.getTodoList(currentProject.name);
 		todoList.forEach((todo) => currentProject.todos.push(todo));
@@ -419,7 +422,6 @@ const todoHandler = (() => {
 	const editTodo = (id, newName, newDesc, newDate) => {
 		if (!allTodos.some((todos) => todos.id === id)) return false;
 		const todo = allTodos.find((todos) => todos.id === id);
-		todo;
 		const todoIndex = allTodos.indexOf(todo);
 
 		//dom modal open with values inserted, fill newName, newDesc, newDate vars
